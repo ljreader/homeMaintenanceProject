@@ -37,6 +37,22 @@
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    // Check login status
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+
+    // response object    
+    {
+        status: 'connected',
+        authResponse: {
+            accessToken: '...',
+            expiresIn:'...',
+            signedRequest:'...',
+            userID:'...'
+        }
+    }
   </script>
 
   <div id = "status"></div>
